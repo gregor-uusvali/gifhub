@@ -1,0 +1,12 @@
+<div id="<%= dom_id post %>" class="post-container">
+  <p class="my-5">
+    <%= image_tag(post.image, class: "post-image", style:"height: 200px; width: 333px;") %>
+  </p>
+
+  <div class="post-links">
+    <% if action_name != "show" %>
+      <%= link_to "Show", post, class: "font-medium" %>
+      <%= link_to 'Edit', edit_post_path(post), class: "font-medium" %>
+    <% end %>
+  </div>
+</div>

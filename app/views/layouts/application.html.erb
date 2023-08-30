@@ -9,10 +9,74 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <style>
+    .circle-container {
+      position: absolute;
+      top: 50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .circle {
+      width: 6rem;
+      height: 6rem;
+      border: 2px solid black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s, color 0.3s;
+      color: black;
+    }
+
+    .circle:hover {
+      background-color: black;
+    }
+
+    .circle:hover a, input {
+      color: white;
+    }
+    .post-container {
+    position: relative;
+    display: inline-block;
+    
+  }
+
+  .post-image {
+    transition: filter 0.3s;
+  }
+
+  .post-links {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+  }
+
+  .post-container:hover .post-image {
+    filter: brightness(20%);
+  }
+
+  .post-container:hover .post-links {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .post-links a {
+    color: white;
+  }
+  .post-links a:hover {
+    color: rgb(235, 101, 197);
+  }
+  </style>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container px-5 flex">
       <%= yield %>
     </main>
   </body>
